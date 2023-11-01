@@ -10,13 +10,13 @@
     <td>
 <svg xmlns="http://www.w3.org/2000/svg" width="192px" height="320px" viewBox="-1 -1 12 20">
 <g id="a" style="fill-rule:evenodd; stroke:#FFFFFF; stroke-width:0.25; stroke-opacity:1; stroke-linecap:butt; stroke-linejoin:miter;">
-  <polygon id="a_seg" points=" 1, 1  2, 0  8, 0  9, 1  8, 2  2, 2" fill="#DDDDDD" onclick="toggleState('a_seg')"/>
-  <polygon id="b_seg" points=" 9, 1 10, 2 10, 8  9, 9  8, 8  8, 2" fill="#DDDDDD" onclick="toggleState('b_seg')"/>
-  <polygon id="c_seg" points=" 9, 9 10,10 10,16  9,17  8,16  8,10" fill="#DDDDDD" onclick="toggleState('c_seg')"/>
-  <polygon id="d_seg" points=" 9,17  8,18  2,18  1,17  2,16  8,16" fill="#DDDDDD" onclick="toggleState('d_seg')"/>
-  <polygon id="e_seg" points=" 1,17  0,16  0,10  1, 9  2,10  2,16" fill="#DDDDDD" onclick="toggleState('e_seg')"/>
-  <polygon id="f_seg" points=" 1, 9  0, 8  0, 2  1, 1  2, 2  2, 8" fill="#DDDDDD" onclick="toggleState('f_seg')"/>
-  <polygon id="g_seg" points=" 1, 9  2, 8  8, 8  9, 9  8,10  2,10" fill="#DDDDDD" onclick="toggleState('g_seg')"/>
+  <polygon id="a_seg" title="toggleA" points=" 1, 1  2, 0  8, 0  9, 1  8, 2  2, 2" fill="#DDDDDD" onclick="toggleState('a_seg')"/>
+  <polygon id="b_seg" title="toggleB" points=" 9, 1 10, 2 10, 8  9, 9  8, 8  8, 2" fill="#DDDDDD" onclick="toggleState('b_seg')"/>
+  <polygon id="c_seg" title="toggleC" points=" 9, 9 10,10 10,16  9,17  8,16  8,10" fill="#DDDDDD" onclick="toggleState('c_seg')"/>
+  <polygon id="d_seg" title="toggleD" points=" 9,17  8,18  2,18  1,17  2,16  8,16" fill="#DDDDDD" onclick="toggleState('d_seg')"/>
+  <polygon id="e_seg" title="toggleE" points=" 1,17  0,16  0,10  1, 9  2,10  2,16" fill="#DDDDDD" onclick="toggleState('e_seg')"/>
+  <polygon id="f_seg" title="toggleF" points=" 1, 9  0, 8  0, 2  1, 1  2, 2  2, 8" fill="#DDDDDD" onclick="toggleState('f_seg')"/>
+  <polygon id="g_seg" title="toggleG" points=" 1, 9  2, 8  8, 8  9, 9  8,10  2,10" fill="#DDDDDD" onclick="toggleState('g_seg')"/>
 </g>
 </svg>
 </td>
@@ -100,7 +100,7 @@ function setPinState(checkboxId, state) {
 // Toggle State is the core function that drives this web app
 
 function toggleState(segmentId) {
-  var formElement = "toggle" + segmentId.charAt(0).toUpperCase();
+  var formElement = document.getElementById(segmentId).getAttribute("title");
 
   if (isLEDenabled(segmentId)) { // if led enabled, then disable it
     disableLED(segmentId);
